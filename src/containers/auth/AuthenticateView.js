@@ -187,7 +187,7 @@ class Authenticate extends Component {
                     },
                 ).start();
 
-                this.props.facebookLogin(data.accessToken.toString()).then(() => {
+                this.props.facebookLogin(data.accessToken.toString()).then((data) => {
                     setTimeout(() => {
                         this.onGrow();
                     }, 2000);
@@ -195,6 +195,8 @@ class Authenticate extends Component {
                         Actions.app({type: 'reset'});
                     }, 2300);
                 });
+            }).catch(()=> {
+                console.log("error")
             });
         }
 
@@ -275,7 +277,7 @@ class Authenticate extends Component {
 
                 <Spacer size={50} />
 
-                <View style={[AppStyles.row, AppStyles.paddingHorizontal, AppStyles.centerAligned]}>
+                <View style={[AppStyles.row, AppStyles.paddingHorizontal, AppStyles.centerAligned, {backgroundColor: 'transparent'}]}>
                     <Text style={{
                         color: '#F8F5F2',
                         fontSize: 65,
@@ -292,7 +294,7 @@ class Authenticate extends Component {
                     </Text>
                 </View>
 
-                <View style={[AppStyles.row, AppStyles.paddingHorizontal, AppStyles.centerAligned]}>
+                <View style={[AppStyles.row, AppStyles.paddingHorizontal, AppStyles.centerAligned, {backgroundColor: 'transparent'}]}>
                     <Text style={{
                         color: '#F8F5F2',
                         fontSize: 10,
@@ -384,7 +386,7 @@ class Authenticate extends Component {
                     </Animated.View>
                 </View>
 
-                <Text h5 style={[AppStyles.textCenterAligned, styles.whiteText]}>
+                <Text h5 style={[AppStyles.textCenterAligned, styles.whiteText, {backgroundColor: 'transparent'}]}>
                     - or -
                 </Text>
 
